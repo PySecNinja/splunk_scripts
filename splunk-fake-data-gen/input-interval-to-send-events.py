@@ -72,7 +72,10 @@ while True:
     # Submit the event to the Splunk index using the index object
     index.submit(json_payload)
 
-    print("Event submitted to Splunk.")
+    # Print a countdown timer displaying how much time is left before the next event sends
+    print(f"Event submitted to Splunk. Next event in {interval_minutes} minute(s).")
+    for i in range(interval_minutes * 60, 0, -1):
+        print(f"\rNext event in {i // 60} minute(s) and {i % 60} second(s).", end="")
+        time.sleep(1)
+    print("\r", end="")
 
-    # Wait for the specified interval before submitting the next event
-    time.sleep(interval_minutes * 60)
