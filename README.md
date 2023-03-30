@@ -9,3 +9,8 @@ Generate custom splunk events with splunk-event-sender
 ```plain text 
 Generate fake data based on how many inputs or on an interval timer with splunk-fake-data-gen
 ```
+
+- ### splunk-search-query
+```plain text 
+Search your splunk events at the cli with splunk-search-query
+```
