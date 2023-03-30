@@ -24,14 +24,15 @@ USAGE - This Python script connects to a Splunk instance using the Splunk
 
 AUTHOR - AUTHOR - https://github.com/Ahendrix9624
 '''
-
 import splunklib.client as client
 import splunklib.results as results
 import os
 import time
 
-# Define the search criteria
-search_query = "search index=main | stats count by source"
+# Prompt user for search query
+search_query = input("Enter search query (default: 'index=main | stats count by source'): ").strip()
+if not search_query:
+    search_query = "search index=main | stats count by source"
 
 # Set connection parameters using environmental variables
 HOST = "localhost"
@@ -41,23 +42,25 @@ PASSWORD = os.environ.get('SPLUNK_PASSWORD')
 
 # Connect to Splunk instance
 service = client.connect(
-    host = HOST,
-    port = PORT,
-    username = USERNAME,
-    password = PASSWORD)
+    host=HOST,
+    port=PORT,
+    username=USERNAME,
+    password=PASSWORD)
 
 # Run the search and retrieve the results
 job = service.jobs.create(search_query)
 while True:
     while not job.is_ready():
         pass
-    stats = {"isDone": job["isDone"],
-            "doneProgress": float(job["doneProgress"]) * 100,
-            "scanCount": int(job["scanCount"]),
-            "eventCount": int(job["eventCount"]),
-            "resultCount": int(job["resultCount"])}
+    stats = {
+        "isDone": job["isDone"],
+        "doneProgress": float(job["doneProgress"]) * 100,
+        "scanCount": int(job["scanCount"]),
+        "eventCount": int(job["eventCount"]),
+        "resultCount": int(job["resultCount"])
+    }
     status = ("\r%(doneProgress)03.1f%%   %(scanCount)d scanned   "
-            "%(eventCount)d matched   %(resultCount)d results") % stats
+              "%(eventCount)d matched   %(resultCount)d results") % stats
     print(status)
     if stats["isDone"] == "1":
         print("\nDone!")
