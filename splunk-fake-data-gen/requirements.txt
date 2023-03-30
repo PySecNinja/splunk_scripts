@@ -1,0 +1,2 @@
+splunk-sdk
+faker==18.3.1
