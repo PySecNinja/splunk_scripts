@@ -60,7 +60,7 @@ while True:
         "resultCount": int(job["resultCount"])
     }
     status = ("\r%(doneProgress)03.1f%%   %(scanCount)d scanned   "
-              "%(eventCount)d matched   %(resultCount)d results") % stats
+            "%(eventCount)d matched   %(resultCount)d results") % stats
     print(status)
     if stats["isDone"] == "1":
         print("\nDone!")
