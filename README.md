@@ -1,4 +1,4 @@
-# Are you looking to simplify your data management processes? These splunk scripts can help!
+# Are you looking to simplify your data management processes? These python scripts for splunk can help!
 
 - ### splunk-event-sender
 ```plain text
