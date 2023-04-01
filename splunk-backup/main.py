@@ -15,11 +15,10 @@ import os
 import shutil
 
 # Set constants for default directories
-hi = "/Users/drew"
-DEFAULT_CONFIG_SRC_DIR = hi + '/opt/splunk/etc'
-DEFAULT_CONFIG_DEST_DIR = hi + '/opt/splunk_backup/configs'
-DEFAULT_INDEX_SRC_DIR = hi + '/opt/splunk/var/lib/splunk/defaultdb/db'
-DEFAULT_INDEX_DEST_DIR = hi + '/opt/splunk_backup/indexed_data'
+DEFAULT_CONFIG_SRC_DIR = '/opt/splunk/etc'
+DEFAULT_CONFIG_DEST_DIR = '/opt/splunk_backup/configs'
+DEFAULT_INDEX_SRC_DIR = '/opt/splunk/var/lib/splunk/defaultdb/db'
+DEFAULT_INDEX_DEST_DIR = '/opt/splunk_backup/indexed_data'
 
 def backup_configs(src_dir=DEFAULT_CONFIG_SRC_DIR, dest_dir=DEFAULT_CONFIG_DEST_DIR):
     # Use default directories if input is empty
