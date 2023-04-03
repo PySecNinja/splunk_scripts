@@ -1,4 +1,4 @@
-## These script's provide a simple and efficient way to send event data to Splunk, making it an excellent choice for developers who need to test their applications with Splunk. It also allows for customization of the event payload with key-value pairs, making it highly adaptable to a variety of use cases.
+# Are you looking to simplify your data management processes? These python scripts for splunk can help!
 
 - ### splunk-event-sender
 ```plain text
@@ -13,4 +13,9 @@ Generate fake data based on how many inputs or on an interval timer with splunk-
 - ### splunk-search-query
 ```plain text 
 Search your splunk events at the cli with splunk-search-query
+```
+
+- ### splunk-backup
+```plain text 
+Creates backups for either configuration files, indexed data, or both, by prompting the user to enter source and destination directories and using default directories if input is empty.
 ```
